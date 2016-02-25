@@ -47,6 +47,11 @@ void Dispose::ToStringQueue(string &input)
 		}
 	}
 	
+	if(count<=10)
+	{
+		data.push(str);
+		str.clear();
+	}
 
 }
 
