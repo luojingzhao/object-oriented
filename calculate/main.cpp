@@ -17,29 +17,49 @@ History:
 #include<queue>
 #include"Scan.h"
 #include"Print.h"
+#include"Calculation.h"
+#include"Operation.h"
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-//
-int main(int argc, char** argv) 
+
+int main(int argc, char* argv[]) 
 {
-    Dispose *p=new Dispose();  /*申请内存 */
-    Print *t=new Print();     
+    Dispose *p = new Dispose();  /*申请内存 */
+    Print *t = new Print();
+	Calculation *cal=new Calculation();     
     string _input, strGetInputRet;    /*实例化string*/ 
-     
-    /*处理输入的字符串*/ 
-    cin>>_input;
+    string str;
+    
+    cout<<"输入四则运算式：" ;
+    cin>>str;
+    cout<<"答案："; 
+    
+    if(str=="-a") //判断是否要输出表达式 
+    {
+    	cin>>_input;
+    	cout<<_input<<"=";
+		
+    }
+    else
+    {
+    	_input = str;
+    }
+    
     p->setinput(_input);
     strGetInputRet = p->getinput();
-    p->ToStringQueue(strGetInputRet);
     
-    t->output();   /*输出处理完的字符串*/ 
+    double calculate;
+    calculate = cal->CaculateExpression(p->ToStringQueue(strGetInputRet)); //传入队列进行计算 
+	t->output(calculate);  //打印答案 
     
     /*释放内存 ，并使其指向空指针*/ 
     delete p;   
     p=NULL;
     delete t;
     t=NULL;
+    delete cal;
+    cal=NULL;
     
     return 0;
 }

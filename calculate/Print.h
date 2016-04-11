@@ -3,13 +3,11 @@
 #include<iostream>
 #include<stdlib.h>
 #include<string>
-#include<queue>
-#include"Scan.h"
 using namespace std; 
 
 class Print
 {
     public:
-        void output();  /*字符串的输出*/ 
+        void output(double &calculate);  /*字符串的输出*/ 
 };
 #endif //__PRINT_H__

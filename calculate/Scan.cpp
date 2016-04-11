@@ -6,14 +6,14 @@
 
 using namespace std;
 
-queue<string>data;  //定义队列的类型并实例化 
-string str;        //实例化string类型 
-int count;        //用来数输入的数的位数 
+queue<string> data;  //定义队列的类型并实例化 
+string str="";        //实例化string类型 
+int count=0;        //用来数输入的数的位数 
 
 //得到私有成员
 void Dispose::setinput(string &_input)
 {
-    input=_input;
+    input = _input;
 }
 
 string Dispose::getinput()
@@ -22,9 +22,10 @@ string Dispose::getinput()
 }
 
 //主要的处理函数 
-void Dispose::ToStringQueue(string &input)
+queue<string> Dispose::ToStringQueue(string &input)
 {
-    int n=input.length();
+    int n = input.length();
+    //cout<<n<<endl;
     
     int i;
     for (i=0;i<n;i++)
@@ -34,29 +35,33 @@ void Dispose::ToStringQueue(string &input)
         cout<<"Error"<<endl;  /*假如输入的字符串长度超过10，则输出错误 */ 
         break;
         }
-        else if (input[i]=='+'||input[i]=='-'||input[i]=='*'
+        if (input[i]=='+'||input[i]=='-'||input[i]=='*'
                              ||input[i]=='/'||input[i]=='='||input[i]=='('||input[i]==')')
         {
             count=0;  /*将位数归零 */ 
-            data.push(str);  /*将之前的数存入*/ 
-            str.clear();     /*清空*/ 
+            if(str!="")
+            {
+            	data.push(str);  /*将之前的数存入*/ 
+                str.clear();     /*清空*/ 
+            }
             
-            str=input[i];   /*将符号再次存入*/ 
+            str = input[i];   /*将符号再次存入*/ 
             data.push(str);
             str.clear();
         }
-        else if (count<=10)
+        else if (count<=10&&input[i] <= '9'  && input[i] >= '0'||input[i]=='.')
         {
             count++;  //计数      
-            str+=input[i];  
+            str += input[i];  
         }
     }
 
-    if (count<=10)
+    if (count<=10&&str!="")  
     {
     	data.push(str);  /*处理若末尾是未超过的数的输出*/ 
     	str.clear();
     }
+    return data;
 }
 
 

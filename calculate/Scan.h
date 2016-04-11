@@ -11,7 +11,7 @@ class Dispose
     public:
         void setinput(string &_input); /*函数的封装 */ 
         string getinput();
-        void ToStringQueue(string &input); /*主要的处理函数 */ 
+        queue<string> ToStringQueue(string &input); /*主要的处理函数 */ 
     private:    
         string input;
 };

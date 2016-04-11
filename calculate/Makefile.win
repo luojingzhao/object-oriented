@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Scan.o Print.o
-LINKOBJ  = main.o Scan.o Print.o
+OBJ      = main.o Scan.o Print.o Calculation.o Operation.o
+LINKOBJ  = main.o Scan.o Print.o Calculation.o Operation.o
 LIBS     = -L"E:/DEV-C++/Dev-Cpp/MinGW32/lib" -L"E:/DEV-C++/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -g3
 INCS     = -I"E:/DEV-C++/Dev-Cpp/MinGW32/include" -I"E:/DEV-C++/Dev-Cpp/MinGW32/mingw32/include" -I"E:/DEV-C++/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
 CXXINCS  = -I"E:/DEV-C++/Dev-Cpp/MinGW32/include" -I"E:/DEV-C++/Dev-Cpp/MinGW32/mingw32/include" -I"E:/DEV-C++/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"E:/DEV-C++/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
@@ -32,3 +32,9 @@ Scan.o: Scan.cpp
 
 Print.o: Print.cpp
 	$(CPP) -c Print.cpp -o Print.o $(CXXFLAGS)
+
+Calculation.o: Calculation.cpp
+	$(CPP) -c Calculation.cpp -o Calculation.o $(CXXFLAGS)
+
+Operation.o: Operation.cpp
+	$(CPP) -c Operation.cpp -o Operation.o $(CXXFLAGS)
