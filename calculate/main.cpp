@@ -23,30 +23,32 @@ using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 
-int main(int argc, char* argv[]) 
+int main(int argc, string* argv[]) 
 {
     Dispose *p = new Dispose();  /*申请内存 */
     Print *t = new Print();
 	Calculation *cal=new Calculation();     
     string _input, strGetInputRet;    /*实例化string*/ 
-    string str;
+    //string str;
     
     cout<<"输入四则运算式：" ;
-    cin>>str;
+    //cin>>str;
     cout<<"答案："; 
     
-    if(str=="-a") //判断是否要输出表达式 
+    if(argv[1]=="-a") //判断是否要输出表达式 
     {
-    	cin>>_input;
-    	cout<<_input<<"=";
-		
+    	//cin>>_input;
+    	cout<<argv[1]<<"=";
+		p->setinput(argv[2]);
     }
-    else
+    /*else
     {
     	_input = str;
+    }*/
+    else
+    {
+    	p->setinput(argv[1]);
     }
-    
-    p->setinput(_input);
     strGetInputRet = p->getinput();
     
     double calculate;
