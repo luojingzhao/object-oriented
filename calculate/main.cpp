@@ -13,7 +13,8 @@ History:
 
 #include<iostream>
 #include<stdlib.h>
-#include<string>
+#include<string> 
+#include<string.h> 
 #include<queue>
 #include"Scan.h"
 #include"Print.h"
