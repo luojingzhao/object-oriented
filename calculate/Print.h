@@ -8,6 +8,7 @@ using namespace std;
 class Print
 {
     public:
-        void output(double &calculate);  /*字符串的输出*/ 
+        void output(double &results);  /*字符串的输出*/ 
+        void FileOutput(string test_file , string result_file);
 };
 #endif //__PRINT_H__

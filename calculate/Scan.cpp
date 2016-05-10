@@ -24,19 +24,79 @@ string Dispose::getinput()
 //主要的处理函数 
 queue<string> Dispose::ToStringQueue(string &input)
 {
+	while(!data.empty())
+	{
+		data.pop();
+	}
     int n = input.length();
-    //cout<<n<<endl;
+    string tmp=""; 
     
+    /*===============================================================
+
+	对输入的字符串在入队之前先做处理，判断在'('的下一个是不是'-'，如果
+	是的话就在他们之间加入一个'0'，处理完后就对处理后的字符串进行入队处
+	理。
+
+	==============================================================*/
+	for(int i=0; i<n-1; i++)
+	{
+		if(input[i]=='('&&input[i+1]=='-')
+		{
+			tmp+=input[i];
+			tmp+='0';
+		}
+		else if(input[i]=='-'&&input[i+1]=='-')
+		{
+			tmp+='+';
+			i++;
+		}
+		else if(input[i]=='-'&&input[i+1]=='+')
+		{
+			tmp+=input[i];
+			i++;
+		}
+		else if(input[i]=='+'&&input[i+1]=='-')
+		{
+			tmp+=input[i];
+			tmp+='0';
+		}
+		else if(input[i]=='+'&&input[i+1]=='+')
+		{
+			tmp+=input[i];
+			i++;
+		}
+		else if(input[i]==')'&&input[i+1]=='(')
+		{
+			tmp+=input[i];
+			tmp+='*';
+		}
+		else if(input[i]>='0'&&input[i]<='9'&&input[i+1]=='(')
+		{
+			tmp+=input[i];
+			tmp+='*';
+		}
+		else if(input[i]==')'&&isdigit(input[i+1]))
+		{
+			tmp+=input[i];
+			tmp+='*';
+		}
+		else
+		{
+			tmp+=input[i];
+		}
+	}
+
     int i;
+    n = tmp.length();
     for (i=0;i<n;i++)
     {
         if (count>10)
         {
-        cout<<"Error"<<endl;  /*假如输入的字符串长度超过10，则输出错误 */ 
-        break;
+        	cout<<"Error"<<endl;  /*假如输入的字符串长度超过10，则输出错误 */ 
+        	break;
         }
-        if (input[i]=='+'||input[i]=='-'||input[i]=='*'
-                             ||input[i]=='/'||input[i]=='='||input[i]=='('||input[i]==')')
+        if (tmp[i]=='+'||tmp[i]=='-'||tmp[i]=='*'
+                             ||tmp[i]=='/'||tmp[i]=='='||tmp[i]=='('||tmp[i]==')')
         {
             count=0;  /*将位数归零 */ 
             if(str!="")
@@ -45,14 +105,14 @@ queue<string> Dispose::ToStringQueue(string &input)
                 str.clear();     /*清空*/ 
             }
             
-            str = input[i];   /*将符号再次存入*/ 
+            str = tmp[i];   /*将符号再次存入*/ 
             data.push(str);
             str.clear();
         }
-        else if (count<=10&&input[i] <= '9'  && input[i] >= '0'||input[i]=='.')
+        else if (count<=10&&input[i] <= '9'  && tmp[i] >= '0'||tmp[i]=='.')
         {
             count++;  //计数      
-            str += input[i];  
+            str += tmp[i];  
         }
     }
 

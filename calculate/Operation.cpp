@@ -92,4 +92,3 @@ double Operation::Operate(double opnd1, string op, double opnd2)
     }
 	return ret;
 }
-

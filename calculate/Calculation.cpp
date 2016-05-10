@@ -25,9 +25,18 @@ Operation *temp=new Operation();
 
 double Calculation::CaculateExpression(queue<string> data)
 {
+	Operation *temp=new Operation();
 	stack<string> StaOper; //只处理+ - # / ()运算
 	stack<double> StaNum;  //只处理输入数字运算
-	string str;
+	while(!StaOper.empty())
+	{
+		StaOper.pop();
+	}
+	while(!StaNum.empty())
+	{
+		StaNum.pop();
+	}
+	string str="";
 	double tmp;
 	data.push("#");
 	StaOper.push("#");
@@ -82,5 +91,6 @@ double Calculation::CaculateExpression(queue<string> data)
 	temp=NULL;
 	return StaNum.top();
 }
+
 
 
