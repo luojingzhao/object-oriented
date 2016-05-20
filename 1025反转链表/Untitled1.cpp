@@ -19,7 +19,7 @@ struct Node *Creat()
 	int i;
 	for (i = 0; i < N; i++)
 	{
-		cin>>Adress>>Data>>Next;
+		cin >> Adress >> Data >> Next;
 		array[Adress].L = Adress;
 		array[Adress].num = Data;
 		array[Adress].R = Next;
@@ -40,54 +40,54 @@ struct Node *Creat()
 
 struct Node *Change(struct Node *head)
 {
-    int count=0;
+	int count = 0;
 	struct Node *New_head, *p1, *p2, *p3;
 	int i, j;
 	//New_head=p1=p2=p3=new Node;
-	New_head=NULL;
-	N=1;
-	p1=head;
-	while(p1->next!=NULL)
+	New_head = NULL;
+	N = 1;
+	p1 = head;
+	while (p1->next != NULL)
 	{
 		N++;
-		p1=p1->next;
+		p1 = p1->next;
 	}
-	p1=head;
-	while(p1&&N>=K)
+	p1 = head;
+	while (p1&&N >= K)
 	{
 		count++;
-		if(count==K)
+		if (count == K)
 		{
-			N-=K;
-			p3=p1;
-			p1=p1->next;
-			while(count--&&p3)
+			N -= K;
+			p3 = p1;
+			p1 = p1->next;
+			while (count--&&p3)
 			{
-				if(New_head==NULL) New_head=p3;
-				else   p2->next=p3;
-				p2=p3;
-				p3=p3->before;
+				if (New_head == NULL) New_head = p3;
+				else   p2->next = p3;
+				p2 = p3;
+				p3 = p3->before;
 			}
-			count=0;
+			count = 0;
 		}
 		else
 		{
-			p1=p1->next;
+			p1 = p1->next;
 		}
 	}
-	while(p1)
+	while (p1)
 	{
-		if(New_head==NULL)
+		if (New_head == NULL)
 		{
-			New_head=p1;
+			New_head = p1;
 		}
-		else{
-		   p2->next=p1;
-		   p2=p1;
-	   }
-	   p1=p1->next;
+		else {
+			p2->next = p1;
+			p2 = p1;
+		}
+		p1 = p1->next;
 	}
-	p2->next=NULL;
+	p2->next = NULL;
 	return New_head;
 }
 
@@ -95,17 +95,17 @@ struct Node *Change(struct Node *head)
 void Print(struct Node *head)
 {
 	struct Node *p;
-	p=head;
-	while(p)
+	p = head;
+	while (p)
 	{
-		if(p->next)
-			printf("%05d %d %05d\n",p->L,p->num,p->next->L);
+		if (p->next)
+			printf("%05d %d %05d\n", p->L, p->num, p->next->L);
 		else
 		{
-			p->R=-1;
-			printf("%05d %d %d\n",p->L,p->num,p->R);
+			p->R = -1;
+			printf("%05d %d %d\n", p->L, p->num, p->R);
 		}
-		p=p->next;
+		p = p->next;
 	}
 }
 int main()
@@ -115,6 +115,5 @@ int main()
 	head = Creat();
 	head = Change(head);
 	Print(head);
-    return 0;
+	return 0;
 }
-
