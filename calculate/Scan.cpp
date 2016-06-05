@@ -8,7 +8,7 @@ using namespace std;
 
 queue<string> data;  //定义队列的类型并实例化 
 string str="";        //实例化string类型 
-int count=0;        //用来数输入的数的位数 
+
 
 //得到私有成员
 void Dispose::setinput(string &_input)
@@ -23,7 +23,9 @@ string Dispose::getinput()
 
 //主要的处理函数 
 queue<string> Dispose::ToStringQueue(string &input)
-{
+{   
+
+    int count=0;        //用来数输入的数的位数 
 	while(!data.empty())
 	{
 		data.pop();

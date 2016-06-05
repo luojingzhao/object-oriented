@@ -5,9 +5,9 @@ Order=6,5,7,8,4,3,1,2,0
 Open=1
 <<<<<<< 5af0c5aae71a5024a1d3dd82cf8f77f1f1e4c42a
 Top=1
-CursorCol=27
-CursorRow=40
-TopLine=44
+CursorCol=44
+CursorRow=41
+TopLine=1
 =======
 Top=0
 CursorCol=27
@@ -19,9 +19,9 @@ LeftChar=1
 Open=1
 Top=0
 <<<<<<< 5af0c5aae71a5024a1d3dd82cf8f77f1f1e4c42a
-CursorCol=18
-CursorRow=70
-TopLine=106
+CursorCol=1
+CursorRow=12
+TopLine=1
 =======
 CursorCol=18
 CursorRow=70
@@ -38,16 +38,16 @@ LeftChar=1
 [Editor_3]
 Open=1
 Top=0
-CursorCol=1
-CursorRow=14
+CursorCol=8
+CursorRow=11
 TopLine=1
 LeftChar=1
 [Editor_4]
 Open=1
 Top=0
-CursorCol=33
-CursorRow=38
-TopLine=1
+CursorCol=22
+CursorRow=9
+TopLine=4
 LeftChar=1
 [Editor_5]
 CursorCol=27
